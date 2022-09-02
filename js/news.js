@@ -14,7 +14,7 @@ const dislayCategory = (categories) =>{
         newCategory.classList.add('col')
         // document.style.newCategory.display = 'inline'
         newCategory.innerHTML = `
-            <h4><a href="#">${category.category_name}</a></h4>
+            <p>${category.category_name}</p>
         `;
         categorySection.appendChild(newCategory)
     });

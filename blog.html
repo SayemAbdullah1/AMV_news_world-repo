@@ -13,23 +13,24 @@
 <body>
     <main class="container">
 
-        <h1>AMV News World</h1>
+
         <!------------- header section --------------------->
         <header>
-            <div>
-                <nav class="navbar navbar-expand-lg bg-light ">
-                    <div class="container-fluid">
-                    <a class="navbar-brand text-primary fw-semi-bold" href="#">AMV News World</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                        aria-label="Toggle navigation">
+        <div>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <h1 class="display-8 fw-bold">AMV News World</h1>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse d-flex" id="navbarNavAltMarkup">
-                        <div class="navbar-nav mx-auto">
-                            <a class="nav-link active" aria-current="page" href="#" aria-current="page">News</a>
-                            <a class="nav-link active" href="blog.html">Blog</a>
-    
+                    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                        <div class="navbar-nav ms-auto display-8 fw-bold">
+                            <a class="nav-link active" aria-current="page" href="index.html">News</a>
+                            <a class="nav-link" href="">Blog</a>
+        
                         </div>
                     </div>
                 </div>
@@ -40,13 +41,67 @@
     
     
     
-    <main class="container">
+<!---------------- blog section ----------------------------->
         
         <section>
             <h2 class="text-center">Blog</h2>
+
+            <div class="container text-center">
+                <div class="row g-2 row-cols-md-1 row-cols-lg-2">
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="p-3 border bg-light text-start">
+                            <h3>Differences between var, let and const.</h3>
+                            <h4>1. Var</h4>
+                            <p>The scope of a var variable is functional scope. It can be updated and re-declared into the scope.</p>
+                            <h4>2. Let</h4>
+                            <p>The scope of a let variable is block scope. It can be updated but cannot be re-declared into the scope.</p>
+                            <h4>3. Const</h4>
+                            <p>The scope of a const variable is block scope. It cannot be updated or re-declared into the scope.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="p-3 border bg-light">
+                            <h3>Difference between arrow function and regular function.</h3>
+                            <h4>1. regular Function</h4>
+                            <p>Inside of a regular JavaScript function, this value (aka the execution context) is dynamic. As seen in the previous section, the regular function can easily construct objects.</p>
+                            <h4>2. Arraow Function</h4>
+                            <p>A consequence of this resolved lexically is that an arrow function cannot be used as a constructor. No matter how or where being executed, this value inside of an arrow function always equals this value from the outer
+                            function. In other words, the arrow function resolves this lexically.</p>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="p-3 border bg-light">
+                            <h3>Difference between map, foreach, filter and find.</h3>
+                            <div class="text-start">
+
+                                <h4>1. ForEach</h4>
+                                <p>Foreach takes a callback function and run that callback function on each element of array one by one.</p>
+                                <h4>2. Map</h4>
+                                <p>Map like filter & foreach takes a callback and run it against every element on the array but whats makes it unique is it
+                                generate a new array based on your existing array.</p>
+                                <h4>3. Filter</h4>
+                                <p>Whenever you have to filter an array Javascript inbuilt method to filter your array is the right choice to use. Filter
+                                let you provide a callback for every element and returns a filtered array.</p>
+                                <h4>4. find</h4>
+                                <p>As the name already suggest reduce method of the array object is used to reduce the array to one single value.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="p-3 border bg-light">
+                            <h3>Why we use template string.</h3>
+                            <p>Template literals are sometimes informally called template strings, because they are used most commonly for string
+                            interpolation (to create strings by doing substitution of placeholders).</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         
-    </main>
+
     
     
     
