@@ -10,9 +10,9 @@ const loadNews = () =>{
 const dislayCategory = (categories) =>{
     // console.log(categories)
     const categorySection = document.getElementById('category-section-title')
-
- 
-
+    
+    
+    
     categories.forEach(category => {
         // console.log(category)
         const newCategory = document.createElement('div')
@@ -21,9 +21,11 @@ const dislayCategory = (categories) =>{
         newCategory.innerHTML = `
         <p class="d-flex flex-wrap" onclick="CategoryId('${category.category_id ? category.category_id : "No data found"}')">${category.category_name}</p>
         `;
-
+        
         categorySection.appendChild(newCategory)
     });
+    // document.getElementById('Total-item').innerText = `${category.category_name}`;
+
 }
 
 const CategoryId = (id) =>{
@@ -35,14 +37,12 @@ const CategoryId = (id) =>{
 const DisplayNews = categoriesId =>{
     // console.log(categoriesId)
     const totalItems = document.getElementById('Total-item')
-    // totalLength.forEach(perLength => {
-        //     totalItems.innerHTML = `
-        //     <p>${Object.keys(perLength.category_id).length} </p>
-        // `;
+    
+    
         categoriesId.sort((a, b) => b.total_view - a.total_view);
         
         categoriesId.forEach((e) => {
-            console.log(`${e.total_view}`);
+            // console.log(`${e.total_view}`);
         });
         // });
         const categoryContainer = document.getElementById('news-section')
@@ -51,7 +51,7 @@ const DisplayNews = categoriesId =>{
         
         categoriesId.forEach(categoryId => {
             console.log(categoryId)
-            
+            document.getElementById('Total-item').innerText = `${categoriesId.length} items found`;
             document.getElementById('spinner').style.display = 'block';
             const newCategory = document.createElement('div')
             newCategory.classList.add('col')
