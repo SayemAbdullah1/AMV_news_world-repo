@@ -79,10 +79,10 @@ const DisplayNews = categoriesId =>{
             <i class="fa-regular fa-eye pt-3"> ${categoryId.total_view ? categoryId.total_view : "No viewer"}</i>
             
             </div>
-            <div>
-            <button onclick="NewsModal('{singlenews.title}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal">
+            <button onclick="NewsModal('{singlenews.category_id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal">
             show details
             </button>
+            
             
             `;
             categoryContainer.appendChild(newCategory)
@@ -106,17 +106,7 @@ const displayNewsDetails = NewsId => {
     NewsId.forEach(singlenews => {
         console.log(singlenews)
     });
-    // modalTitle.innerText = categoryId.title;
-
-    // const phoneDetails = document.getElementById('phone-details')
-
-    // phoneDetails.innerHTML = `
-    // <p><b>Release Date</b>: ${phone.releaseDate ? phone.releaseDate : 'No release date found'}</p>
-    // <p><b>Bluetooth</b>: ${phone.others ? phone.others.Bluetooth : 'No bluetooth details found.'} </p>
-    // <p><b>Storage</b>: ${phone.mainFeatures ? phone.mainFeatures.storage : 'No storage details found.'} </p>
-    
-
-    // `;
+   
 
 }
 
