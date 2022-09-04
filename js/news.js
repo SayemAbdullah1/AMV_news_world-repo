@@ -10,13 +10,16 @@ const loadNews = () =>{
 const dislayCategory = (categories) =>{
     // console.log(categories)
     const categorySection = document.getElementById('category-section-title')
+
+ 
+
     categories.forEach(category => {
         // console.log(category)
         const newCategory = document.createElement('div')
         newCategory.classList.add('col')
         // document.style.newCategory.display = 'inline'
         newCategory.innerHTML = `
-        <p class="d-flex flex-wrap" onclick="CategoryId('${category.category_id}')">${category.category_name}</p>
+        <p class="d-flex flex-wrap" onclick="CategoryId('${category.category_id ? category.category_id : "No data found"}')">${category.category_name}</p>
         `;
 
         categorySection.appendChild(newCategory)
@@ -33,10 +36,15 @@ const CategoryId = (id) =>{
 const DisplayNews = categoriesId =>{
     // console.log(categoriesId)
     const totalItems = document.getElementById('Total-item')
-    // totalLength.forEach(length => {
+    // totalLength.forEach(perLength => {
     //     totalItems.innerHTML = `
-    //     <p>${length.category_id.length} </p>
+    //     <p>${Object.keys(perLength.category_id).length} </p>
     // `;
+    categoriesId.sort((a, b) => b.total_view - a.total_view);
+
+    categoriesId.forEach((e) => {
+        console.log(`${e.total_view}`);
+    });
     // });
     const categoryContainer = document.getElementById('news-section')
 
@@ -44,6 +52,7 @@ const DisplayNews = categoriesId =>{
 
     categoriesId.forEach(categoryId => {
         console.log(categoryId)
+
         const newCategory = document.createElement('div')
         newCategory.classList.add('col')
         // document.style.newCategory.display = 'inline'
@@ -56,7 +65,11 @@ const DisplayNews = categoriesId =>{
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">${categoryId.title ? categoryId.title : 'not Found'}</h5>
-                                <p class="card-text d-inline-block text-truncate" style="max-width: 950px;">${categoryId.details.slice(0, 400)}</p>
+                                <p class="card-text " style="  display: -webkit-box;
+                                    max-width: 650px;
+                                    -webkit-line-clamp: 3;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;">${categoryId.details.slice(0, 400)}</p>
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                          <img src="${categoryId.author.img ? categoryId.thumbnail_url : 'not Found'}" class="img-fluid rounded-circle" style="max-height: 50px;" alt="...">
@@ -67,7 +80,9 @@ const DisplayNews = categoriesId =>{
                                         
                                     </div>
                                     <div>
-                                    <button class="btn btn-primary pt-2">Details</button>
+                                   <button onclick="NewsModal('{singlenews.title}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal">
+                                        show details
+                                    </button>
 
                                     </div>
                                 </div>
@@ -81,7 +96,36 @@ const DisplayNews = categoriesId =>{
         categoryContainer.appendChild(newCategory)
         
         
+        
     });
 }
+
+const NewsModal = (id) => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayNewsDetails(data.data[0]))
+}
+
+const displayNewsDetails = NewsId => {
+    // console.log(categoryId)
+    const modalTitle = document.getElementById('newsModalLabel')
+    NewsId.forEach(singlenews => {
+        console.log(singlenews)
+    });
+    // modalTitle.innerText = categoryId.title;
+
+    // const phoneDetails = document.getElementById('phone-details')
+
+    // phoneDetails.innerHTML = `
+    // <p><b>Release Date</b>: ${phone.releaseDate ? phone.releaseDate : 'No release date found'}</p>
+    // <p><b>Bluetooth</b>: ${phone.others ? phone.others.Bluetooth : 'No bluetooth details found.'} </p>
+    // <p><b>Storage</b>: ${phone.mainFeatures ? phone.mainFeatures.storage : 'No storage details found.'} </p>
+    
+
+    // `;
+
+}
+
 
 loadNews()
